@@ -322,12 +322,17 @@
   .vm-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;background:var(--gradient-cool);color:#fff;font-weight:600;font-size:14px;box-shadow:0 16px 32px -10px rgba(46,183,194,.5);transition:transform .25s ease,box-shadow .25s ease}
   .vm-btn:hover{transform:translateY(-3px);box-shadow:0 22px 44px -10px rgba(46,183,194,.65)}
   .vm-btn svg{width:15px;height:15px}
-  .vm-visual{position:relative;aspect-ratio:1;max-width:280px;width:100%;margin:0 auto;border-radius:24px;background:linear-gradient(135deg,rgba(46,183,194,.12),rgba(255,122,46,.08)),#0a0c14;border:1px solid rgba(46,183,194,.2);display:grid;place-items:center;overflow:hidden;box-shadow:0 25px 60px -20px rgba(46,183,194,.3)}
+  .vm-visual{position:relative;aspect-ratio:4/5;max-width:340px;width:100%;margin:0 auto;border-radius:24px;background:linear-gradient(135deg,rgba(46,183,194,.12),rgba(255,122,46,.08)),#0a0c14;border:1px solid rgba(46,183,194,.2);overflow:hidden;box-shadow:0 25px 60px -20px rgba(46,183,194,.35)}
+  .vm-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s ease}
+  .vm-visual:hover img{transform:scale(1.05)}
+  .vm-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(5,8,15,.85) 100%);z-index:1;pointer-events:none}
   .vm-text{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(56px,9vw,80px);line-height:.9;background:var(--gradient-cool);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.04em;position:relative;z-index:1}
   .vm-text sup{font-size:.4em;-webkit-text-fill-color:var(--accent-2);color:var(--accent-2);margin-left:4px}
-  .vm-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:10px;text-align:center;position:relative;z-index:1}
-  .vm-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(46,183,194,.25);animation:spin 22s linear infinite}
-  .vm-inner{position:relative;z-index:1;text-align:center}
+  .vm-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-top:10px;text-align:center;position:relative;z-index:2}
+  .vm-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(46,183,194,.4);animation:spin 22s linear infinite;z-index:2;pointer-events:none}
+  .vm-inner{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .vm-tag{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;background:rgba(46,183,194,.18);border:1px solid rgba(46,183,194,.35);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;backdrop-filter:blur(8px)}
+  .vm-tag svg{width:13px;height:13px;color:var(--accent-2)}
   @media (max-width:860px){.vm-wrap{grid-template-columns:1fr;padding:44px 26px;gap:36px}.vm-visual{margin:0 auto}}
 
   /* ====== DEPORTE (mirror de VM, paleta cálida) ====== */
@@ -354,9 +359,15 @@
   .dp-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;background:var(--gradient-warm);color:#fff;font-weight:600;font-size:14px;box-shadow:0 16px 32px -10px rgba(255,122,46,.55);transition:transform .25s ease,box-shadow .25s ease}
   .dp-btn:hover{transform:translateY(-3px);box-shadow:0 22px 44px -10px rgba(255,122,46,.7)}
   .dp-btn svg{width:15px;height:15px}
-  .dp-visual{position:relative;aspect-ratio:1;max-width:280px;width:100%;margin:0 auto;border-radius:24px;background:linear-gradient(135deg,rgba(255,122,46,.14),rgba(46,183,194,.06)),#0d0805;border:1px solid rgba(255,122,46,.22);display:grid;place-items:center;overflow:hidden;box-shadow:0 25px 60px -20px rgba(255,122,46,.35)}
-  .dp-icon{width:100px;height:100px;display:grid;place-items:center;border-radius:24px;background:var(--gradient-warm);box-shadow:0 16px 40px -10px rgba(255,122,46,.55);position:relative;z-index:1}
-  .dp-icon svg{width:50px;height:50px;color:#fff}
+  .dp-visual{position:relative;aspect-ratio:4/5;max-width:340px;width:100%;margin:0 auto;border-radius:24px;background:linear-gradient(135deg,rgba(255,122,46,.14),rgba(46,183,194,.06)),#0d0805;border:1px solid rgba(255,122,46,.22);overflow:hidden;box-shadow:0 25px 60px -20px rgba(255,122,46,.4)}
+  .dp-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s ease}
+  .dp-visual:hover img{transform:scale(1.05)}
+  .dp-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(5,8,15,.85) 100%);z-index:1;pointer-events:none}
+  .dp-inner{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.4);animation:spin 22s linear infinite;z-index:2;pointer-events:none}
+  .dp-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+  .dp-tag{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;background:rgba(255,122,46,.18);border:1px solid rgba(255,122,46,.4);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;backdrop-filter:blur(8px)}
+  .dp-tag svg{width:13px;height:13px;color:var(--accent)}
   .dp-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:14px;text-align:center;position:relative;z-index:1}
   .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.28);animation:spin 22s linear infinite}
   .dp-inner{position:relative;z-index:1;text-align:center}
@@ -415,7 +426,21 @@
   .about .stat{display:flex;flex-direction:column}
   .about .stat .n{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
   .about .stat .l{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.16em;margin-top:5px;font-family:'Space Grotesk',sans-serif}
-  @media (max-width:860px){.about-wrap{grid-template-columns:1fr;gap:32px}.about-portrait{max-width:240px}}
+  /* Foto secundaria del consultorio + caption con el lema MENTE PROCESO RENDIMIENTO */
+  .about-media{display:flex;flex-direction:column;gap:14px;max-width:340px;margin:0 auto}
+  .about-extra{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px -16px rgba(0,0,0,.5);margin:0}
+  .about-extra img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block}
+  .about-extra:hover img{transform:scale(1.04)}
+  .about-extra::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(5,8,15,.92) 100%);pointer-events:none;z-index:1}
+  .about-extra-caption{
+    position:absolute;left:14px;right:14px;bottom:14px;z-index:2;
+    display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;
+    text-transform:uppercase;letter-spacing:.18em;color:#fff;
+  }
+  .about-extra-caption .warm{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+  .about-extra-caption .sep{color:var(--muted);opacity:.55}
+  @media (max-width:860px){.about-wrap{grid-template-columns:1fr;gap:32px}.about-media{max-width:280px}}
 
   /* ====== FINAL CTA ====== */
   .final-cta{position:relative;padding:90px 0;overflow:hidden}
@@ -640,16 +665,13 @@
         </a>
       </div>
       <div class="dp-visual">
+        <img src="assets/camilo-deporte.png" alt="Camilo Pinilla acompañando entrenamiento deportivo" loading="lazy"/>
         <div class="dp-ring"></div>
         <div class="dp-inner">
-          <div class="dp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 2v20M2 12h20"/>
-              <path d="M5 5l14 14M19 5L5 19"/>
-            </svg>
-          </div>
-          <div class="dp-sub">Psicología del deporte</div>
+          <span class="dp-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Psicología del deporte
+          </span>
         </div>
       </div>
     </div>
@@ -675,15 +697,13 @@
         </a>
       </div>
       <div class="vm-visual">
+        <img src="assets/camilo-consulta.png" alt="Camilo Pinilla en sesión de consulta" loading="lazy"/>
         <div class="vm-ring"></div>
         <div class="vm-inner">
-          <div class="vm-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 2a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 1.5 2.6A3 3 0 0 0 3 13a3 3 0 0 0 2 2.83V17a3 3 0 0 0 3 3 3 3 0 0 0 4-3V2.17A3 3 0 0 0 9 2z"/>
-              <path d="M15 2a3 3 0 0 1 3 3 3 3 0 0 1 3 3 3 3 0 0 1-1.5 2.6A3 3 0 0 1 21 13a3 3 0 0 1-2 2.83V17a3 3 0 0 1-3 3 3 3 0 0 1-4-3"/>
-            </svg>
-          </div>
-          <div class="vm-sub">Tratamiento ambulatorio</div>
+          <span class="vm-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            Tratamiento ambulatorio
+          </span>
         </div>
       </div>
     </div>
@@ -729,9 +749,9 @@
 <section class="about" id="sobre">
   <div class="container">
     <div class="about-wrap">
-      <div class="reveal">
+      <div class="reveal about-media">
         <div class="about-portrait">
-          <img class="photo" src="assets/camilo.png" alt="Camilo Pinilla" onerror="this.remove()"/>
+          <img class="photo" src="assets/camilo-portrait.png" alt="Camilo Pinilla, psicólogo del rendimiento" onerror="this.remove()"/>
           <div class="ring"></div>
           <div class="initials">CP</div>
           <div class="badge-dr">
@@ -742,6 +762,14 @@
             </a>
           </div>
         </div>
+        <figure class="about-extra">
+          <img src="assets/camilo-desk.png" alt="Camilo Pinilla en su consultorio" loading="lazy"/>
+          <figcaption class="about-extra-caption">
+            <span>Mente</span><span class="sep">·</span>
+            <span class="warm">Proceso</span><span class="sep">·</span>
+            <span>Rendimiento</span>
+          </figcaption>
+        </figure>
       </div>
       <div class="reveal reveal-d2">
         <span class="eyebrow"><span class="dot"></span> Sobre Camilo</span>
