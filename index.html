@@ -322,10 +322,29 @@
   .vm-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;background:var(--gradient-cool);color:#fff;font-weight:600;font-size:14px;box-shadow:0 16px 32px -10px rgba(46,183,194,.5);transition:transform .25s ease,box-shadow .25s ease}
   .vm-btn:hover{transform:translateY(-3px);box-shadow:0 22px 44px -10px rgba(46,183,194,.65)}
   .vm-btn svg{width:15px;height:15px}
-  .vm-visual{position:relative;aspect-ratio:4/5;max-width:340px;width:100%;margin:0 auto;border-radius:24px;background:linear-gradient(135deg,rgba(46,183,194,.12),rgba(255,122,46,.08)),#0a0c14;border:1px solid rgba(46,183,194,.2);overflow:hidden;box-shadow:0 25px 60px -20px rgba(46,183,194,.35)}
-  .vm-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s ease}
-  .vm-visual:hover img{transform:scale(1.05)}
-  .vm-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(5,8,15,.85) 100%);z-index:1;pointer-events:none}
+  /* Visual de Adicciones: foto + etiqueta DEBAJO (siempre visible) */
+  .vm-visual{display:flex;flex-direction:column;align-items:center;gap:14px;max-width:360px;width:100%;margin:0 auto}
+  .vm-photo{
+    position:relative;aspect-ratio:4/5;width:100%;
+    border-radius:24px;overflow:hidden;
+    background:linear-gradient(135deg,rgba(46,183,194,.12),rgba(255,122,46,.08)),#0a0c14;
+    border:1px solid rgba(46,183,194,.2);
+    box-shadow:0 25px 60px -20px rgba(46,183,194,.35);
+  }
+  .vm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block}
+  .vm-photo:hover img{transform:scale(1.05)}
+
+  /* Etiqueta visible siempre, debajo de la foto */
+  .vm-label{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:11px 20px;border-radius:999px;
+    background:var(--gradient-cool);color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    box-shadow:0 14px 32px -10px rgba(46,183,194,.5);
+    white-space:nowrap;
+  }
+  .vm-label svg{width:14px;height:14px;color:#fff;flex-shrink:0}
   .vm-text{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(56px,9vw,80px);line-height:.9;background:var(--gradient-cool);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.04em;position:relative;z-index:1}
   .vm-text sup{font-size:.4em;-webkit-text-fill-color:var(--accent-2);color:var(--accent-2);margin-left:4px}
   .vm-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-top:10px;text-align:center;position:relative;z-index:2}
@@ -365,21 +384,30 @@
   .dp-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;background:var(--gradient-warm);color:#fff;font-weight:600;font-size:14px;box-shadow:0 16px 32px -10px rgba(255,122,46,.55);transition:transform .25s ease,box-shadow .25s ease}
   .dp-btn:hover{transform:translateY(-3px);box-shadow:0 22px 44px -10px rgba(255,122,46,.7)}
   .dp-btn svg{width:15px;height:15px}
-  .dp-visual{position:relative;aspect-ratio:4/5;max-width:340px;width:100%;margin:0 auto;border-radius:24px;background:linear-gradient(135deg,rgba(255,122,46,.14),rgba(46,183,194,.06)),#0d0805;border:1px solid rgba(255,122,46,.22);overflow:hidden;box-shadow:0 25px 60px -20px rgba(255,122,46,.4)}
-  .dp-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s ease}
-  .dp-visual:hover img{transform:scale(1.05)}
-  .dp-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(5,8,15,.85) 100%);z-index:1;pointer-events:none}
-  .dp-inner{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
-  .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.4);animation:spin 22s linear infinite;z-index:2;pointer-events:none}
-  .dp-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff}
-  .dp-tag{
-    display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
-    background:rgba(255,122,46,.22);border:1px solid rgba(255,122,46,.45);
-    font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;
-    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    max-width:calc(100% - 8px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  /* Visual de Deporte: foto + etiqueta DEBAJO (siempre visible) */
+  .dp-visual{display:flex;flex-direction:column;align-items:center;gap:14px;max-width:360px;width:100%;margin:0 auto}
+  .dp-photo{
+    position:relative;aspect-ratio:4/5;width:100%;
+    border-radius:24px;overflow:hidden;
+    background:linear-gradient(135deg,rgba(255,122,46,.14),rgba(46,183,194,.06)),#0d0805;
+    border:1px solid rgba(255,122,46,.22);
+    box-shadow:0 25px 60px -20px rgba(255,122,46,.4);
   }
-  .dp-tag svg{width:12px;height:12px;color:var(--accent);flex-shrink:0}
+  .dp-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block}
+  .dp-photo:hover img{transform:scale(1.05)}
+  .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.4);animation:spin 22s linear infinite;pointer-events:none;z-index:1}
+
+  /* Etiqueta visible siempre, debajo de la foto */
+  .dp-label{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:11px 20px;border-radius:999px;
+    background:var(--gradient-warm);color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    box-shadow:0 14px 32px -10px rgba(255,122,46,.55);
+    white-space:nowrap;
+  }
+  .dp-label svg{width:14px;height:14px;color:#fff;flex-shrink:0}
   .dp-sub{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:14px;text-align:center;position:relative;z-index:1}
   .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.28);animation:spin 22s linear infinite}
   .dp-inner{position:relative;z-index:1;text-align:center}
@@ -677,14 +705,14 @@
         </a>
       </div>
       <div class="dp-visual">
-        <img src="assets/camilo-deporte.png" alt="Camilo Pinilla acompañando entrenamiento deportivo" loading="lazy"/>
-        <div class="dp-ring"></div>
-        <div class="dp-inner">
-          <span class="dp-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            Deporte
-          </span>
+        <div class="dp-photo">
+          <img src="assets/camilo-deporte.png" alt="Camilo Pinilla acompañando entrenamiento deportivo" loading="lazy"/>
+          <div class="dp-ring"></div>
         </div>
+        <span class="dp-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          Psicología del deporte
+        </span>
       </div>
     </div>
   </div>
@@ -709,14 +737,13 @@
         </a>
       </div>
       <div class="vm-visual">
-        <img src="assets/camilo-consulta.png" alt="Camilo Pinilla en sesión de consulta" loading="lazy"/>
-        <div class="vm-ring"></div>
-        <div class="vm-inner">
-          <span class="vm-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            Ambulatorio
-          </span>
+        <div class="vm-photo">
+          <img src="assets/camilo-consulta.png" alt="Camilo Pinilla en sesión de consulta" loading="lazy"/>
         </div>
+        <span class="vm-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          Tratamiento ambulatorio
+        </span>
       </div>
     </div>
   </div>
