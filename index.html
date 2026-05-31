@@ -331,8 +331,30 @@
     border:1px solid rgba(46,183,194,.2);
     box-shadow:0 25px 60px -20px rgba(46,183,194,.35);
   }
-  .vm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block}
+  .vm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block;z-index:0}
   .vm-photo:hover img{transform:scale(1.05)}
+
+  /* Título overlay DENTRO de la foto (banner inferior con gradiente) */
+  .vm-photo::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:55%;
+    background:linear-gradient(180deg,transparent 0%,rgba(5,8,15,.4) 45%,rgba(5,8,15,.92) 100%);
+    z-index:1;pointer-events:none;
+  }
+  .vm-overlay{
+    position:absolute;left:18px;right:18px;bottom:18px;z-index:3;
+    display:flex;flex-direction:column;gap:5px;
+  }
+  .vm-overlay .eyebrow-mini{
+    font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent-2);font-weight:700;
+    display:flex;align-items:center;gap:8px;
+  }
+  .vm-overlay .eyebrow-mini::before{content:"";width:18px;height:2px;background:var(--accent-2);border-radius:2px;display:inline-block}
+  .vm-overlay h4{
+    font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,4.5vw,22px);
+    font-weight:700;color:#fff;line-height:1.15;margin:0;letter-spacing:-.01em;
+    text-shadow:0 2px 18px rgba(0,0,0,.5);
+  }
 
   /* Etiqueta visible siempre, debajo de la foto */
   .vm-label{
@@ -393,9 +415,31 @@
     border:1px solid rgba(255,122,46,.22);
     box-shadow:0 25px 60px -20px rgba(255,122,46,.4);
   }
-  .dp-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block}
+  .dp-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block;z-index:0}
   .dp-photo:hover img{transform:scale(1.05)}
-  .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.4);animation:spin 22s linear infinite;pointer-events:none;z-index:1}
+  .dp-ring{position:absolute;inset:8px;border-radius:18px;border:1px dashed rgba(255,122,46,.4);animation:spin 22s linear infinite;pointer-events:none;z-index:2}
+
+  /* Título overlay DENTRO de la foto (banner inferior con gradiente) */
+  .dp-photo::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:55%;
+    background:linear-gradient(180deg,transparent 0%,rgba(5,8,15,.4) 45%,rgba(5,8,15,.92) 100%);
+    z-index:1;pointer-events:none;
+  }
+  .dp-overlay{
+    position:absolute;left:18px;right:18px;bottom:18px;z-index:3;
+    display:flex;flex-direction:column;gap:5px;
+  }
+  .dp-overlay .eyebrow-mini{
+    font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);font-weight:700;
+    display:flex;align-items:center;gap:8px;
+  }
+  .dp-overlay .eyebrow-mini::before{content:"";width:18px;height:2px;background:var(--accent);border-radius:2px;display:inline-block}
+  .dp-overlay h4{
+    font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,4.5vw,22px);
+    font-weight:700;color:#fff;line-height:1.15;margin:0;letter-spacing:-.01em;
+    text-shadow:0 2px 18px rgba(0,0,0,.5);
+  }
 
   /* Etiqueta visible siempre, debajo de la foto */
   .dp-label{
@@ -708,6 +752,10 @@
         <div class="dp-photo">
           <img src="assets/camilo-deporte.png" alt="Camilo Pinilla acompañando entrenamiento deportivo" loading="lazy"/>
           <div class="dp-ring"></div>
+          <div class="dp-overlay">
+            <span class="eyebrow-mini">Rendimiento mental</span>
+            <h4>Psicología del deporte</h4>
+          </div>
         </div>
         <span class="dp-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
@@ -739,6 +787,10 @@
       <div class="vm-visual">
         <div class="vm-photo">
           <img src="assets/camilo-consulta.png" alt="Camilo Pinilla en sesión de consulta" loading="lazy"/>
+          <div class="vm-overlay">
+            <span class="eyebrow-mini">Adicciones · Conducta</span>
+            <h4>Tratamiento ambulatorio</h4>
+          </div>
         </div>
         <span class="vm-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
